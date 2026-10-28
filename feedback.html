@@ -1,29 +1,207 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#100b1b">
+<title>Feedback & Bug Reports — Hyrule Engine</title>
+
 <style>
+:root {
+  --bg: #0c0813;
+  --panel: #171020;
+  --purple: #7544bd;
+  --bright: #c4a9ff;
+  --text: #f6f0ff;
+  --muted: #b7a9c9;
+  --line: rgba(211,187,255,.2);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 35px 16px;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(100,58,151,.3), transparent 55%),
+    var(--bg);
+  color: var(--text);
+  font-family: Inter, system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+.container {
+  width: min(650px, 100%);
+  margin: 0 auto;
+}
+
+.back {
+  display: inline-block;
+  margin-bottom: 25px;
+  color: var(--bright);
+  text-decoration: none;
+}
+
+.back:hover { text-decoration: underline; }
+
+h1 {
+  font-size: clamp(2rem, 7vw, 3.2rem);
+  line-height: 1.1;
+  margin: 0 0 12px;
+}
+
+.intro {
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+
+.form-card {
+  padding: clamp(20px, 5vw, 32px);
+  background: linear-gradient(145deg, #21152f, #110c19);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+}
+
+label {
+  display: block;
+  margin: 18px 0 7px;
+  font-weight: 700;
+}
+
+input, select, textarea {
+  display: block;
+  width: 100%;
+  padding: 13px 14px;
+  background: #100b19;
+  border: 1px solid #514069;
+  border-radius: 10px;
+  color: var(--text);
+  font: inherit;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: 2px solid var(--bright);
+  outline-offset: 2px;
+}
+
+textarea {
+  min-height: 160px;
+  resize: vertical;
+}
+
+.hint {
+  color: var(--muted);
+  font-size: .85rem;
+  margin: 6px 0 0;
+}
+
 .submit-btn {
-    width: 100%;
-    padding: 14px;
-    background: #7544BD;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.2s;
+  width: 100%;
+  margin-top: 25px;
+  padding: 14px;
+  background: var(--purple);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background .2s, transform .2s;
 }
 
 .submit-btn:hover {
-    background: #9060D8;
-    transform: translateY(-2px);
+  background: #9060d8;
+  transform: translateY(-2px);
 }
-</style>
 
+footer {
+  margin-top: 24px;
+  color: var(--muted);
+  font-size: .85rem;
+  text-align: center;
+}
+
+footer a { color: var(--bright); }
+</style>
+</head>
+
+<body>
+<main class="container">
+
+<a class="back" href="./index.html">← Back to Hyrule Engine</a>
+
+<h1>Feedback &amp; Bug Reports</h1>
+<p class="intro">
+  Found a bug or have an idea? Tell us about it.
+  Your feedback helps improve Hyrule Engine!
+</p>
+
+<div class="form-card">
 <form action="https://formspree.io/f/meaakpqj" method="POST">
 
-    <!-- Deine Feedback-Felder kommen hier hin! -->
+  <label for="type">Feedback type</label>
+  <select id="type" name="Feedback type" required>
+    <option value="">Choose an option</option>
+    <option value="Bug Report">Bug Report</option>
+    <option value="Feature Request">Feature Request</option>
+    <option value="General Feedback">General Feedback</option>
+  </select>
 
-    <button type="submit" class="submit-btn">
-        Submit Feedback
-    </button>
+  <label for="title">Title</label>
+  <input
+    id="title"
+    name="Title"
+    type="text"
+    placeholder="Short description of your feedback"
+    required
+  >
+
+  <label for="version">Hyrule Engine version</label>
+  <input
+    id="version"
+    name="Version"
+    type="text"
+    value="1.0"
+    required
+  >
+
+  <label for="email">Your email (optional)</label>
+  <input
+    id="email"
+    name="email"
+    type="email"
+    placeholder="you@example.com"
+  >
+  <p class="hint">Only add your email if you want to be contacted about your report.</p>
+
+  <label for="details">Details</label>
+  <textarea
+    id="details"
+    name="Details"
+    placeholder="What happened? What did you expect? Include steps to reproduce a bug if possible."
+    required
+  ></textarea>
+
+  <input
+    type="hidden"
+    name="_subject"
+    value="New Hyrule Engine Feedback"
+  >
+
+  <button type="submit" class="submit-btn">
+    Submit Feedback
+  </button>
 
 </form>
+</div>
+
+<footer>
+  Hyrule Engine · Independent fan-made modding project<br>
+  <a href="./index.html">Return to the main website</a>
+</footer>
+
+</main>
+</body>
+</html>
