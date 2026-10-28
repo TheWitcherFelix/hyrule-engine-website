@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#100b1b">
-<meta name="description" content="Hyrule Engine — a Zelda modding toolkit. Version 1.0 planned for October 29, 2026.">
+<meta name="description" content="Hyrule Engine — a Zelda modding toolkit. Windows download available; Linux support is a work in progress.">
 <title>Hyrule Engine — One Engine. Many Zelda Worlds.</title>
 
 <style>
@@ -100,9 +100,7 @@ a { color: inherit; }
   transition: color .18s ease;
 }
 
-.navlinks a:hover {
-  color: var(--text);
-}
+.navlinks a:hover { color: var(--text); }
 
 .nav-cta {
   padding: 8px 12px;
@@ -402,21 +400,53 @@ h1 {
 .download-card p { margin: 0; color: var(--muted); }
 .platform { font-size: 1.5rem; }
 
-.placeholder {
+.download-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 22px;
+  padding: 12px 16px;
+  border-radius: 11px;
+  background: linear-gradient(135deg,#d4c0ff,#a98aff);
+  color: #160e22;
+  text-decoration: none;
+  font-weight: 850;
+  border: 1px solid transparent;
+  transition: transform .18s ease,filter .18s ease;
+}
+
+.download-button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+}
+
+.release-link {
+  display: block;
+  width: fit-content;
+  margin-top: 13px;
+  color: var(--bright);
+  font-size: .9rem;
+  text-decoration: none;
+}
+
+.release-link:hover { text-decoration: underline; }
+
+.download-note {
+  font-size: .82rem !important;
+  margin-top: 12px !important;
+  color: #c6b7d7 !important;
+}
+
+.wip-badge {
   display: inline-flex;
   margin-top: 22px;
-  padding: 10px 14px;
+  padding: 9px 13px;
   border: 1px dashed rgba(229,199,122,.55);
   color: var(--gold);
   border-radius: 10px;
   font-size: .88rem;
   font-weight: 800;
-}
-
-.placeholder-note {
-  font-size: .8rem !important;
-  margin-top: 10px !important;
-  color: #c6b7d7 !important;
 }
 
 /* SCREENSHOTS */
@@ -453,8 +483,6 @@ h1 {
   background: linear-gradient(transparent,rgba(9,6,14,.95));
   font-weight: 800;
 }
-
-.note { margin-top: 22px; color: var(--muted); font-size: .86rem; }
 
 /* FOOTER */
 
@@ -874,23 +902,46 @@ footer {
       <span class="eyebrow">Get the toolkit</span>
       <h2>Downloads.</h2>
       <p>
-        Version 1.0 is planned for October 29, 2026.
-        Download links will appear here when the release packages are ready.
+        Hyrule Engine 1.0 is available for Windows.
+        Linux support is currently a work in progress.
       </p>
     </div>
 
     <div class="downloads-grid">
 
+      <!-- WINDOWS DOWNLOAD -->
+
       <article class="download-card">
         <div class="download-top">
           <div>
             <h3>Windows</h3>
-            <p>Windows release package</p>
+            <p>Hyrule Engine 1.0 · ZIP package</p>
           </div>
           <span class="platform" aria-hidden="true">▣</span>
         </div>
-        <span class="placeholder">Coming soon — link not added</span>
+
+        <a
+          class="download-button"
+          href="https://github.com/TheWitcherFelix/hyrule-engine-1.0-download/archive/refs/heads/main.zip"
+        >
+          Download for Windows <span aria-hidden="true">↓</span>
+        </a>
+
+        <a
+          class="release-link"
+          href="https://github.com/TheWitcherFelix/hyrule-engine-1.0-download"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View repository on GitHub ↗
+        </a>
+
+        <p class="download-note">
+          Downloads the ZIP package from GitHub. Extract it after downloading.
+        </p>
       </article>
+
+      <!-- LINUX WORK IN PROGRESS -->
 
       <article class="download-card">
         <div class="download-top">
@@ -900,7 +951,12 @@ footer {
           </div>
           <span class="platform" aria-hidden="true">⌘</span>
         </div>
-        <span class="placeholder">Coming soon — link not added</span>
+
+        <span class="wip-badge">Work in Progress</span>
+
+        <p class="download-note">
+          A Linux version is being worked on. There is no Linux download available yet.
+        </p>
       </article>
 
     </div>
